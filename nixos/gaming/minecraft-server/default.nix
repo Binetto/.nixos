@@ -17,11 +17,9 @@ let
   JARFILE = "server.jar";
 in
 {
-  options.modules.profiles.gaming.mcServer = {
-    enable = mkEnableOption "minecraft server";
-  };
+  options.modules.profiles.gaming.mcServer.enable = lib.mkEnableOption "minecraft server" // { default = true; };
 
-  config = mkIf (cfg.enable) {
+  config = mkIf config.modules.profiles.gaming.mcServer.enable {
     networking.firewall = {
       allowedTCPPorts = [
         ports.server

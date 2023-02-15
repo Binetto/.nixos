@@ -2,43 +2,41 @@
   {
 
     imports = [ 
-#      ../../modules/default.nix
-      ./hardware.nix
       ../../nixos/default.nix
-#      ../../nixos/system/default.nix
+      ../../nixos/gaming
     ];
 
-#  modules = {
-#    bootloader = "grub";
-#  };
-
-  ## Custom modules ##
   modules = {
     bootloader = "grub";
-    windowManager = "dwm";
-    transmission.enable = false;
-    services = {
-      greenclip.enable = true;
-      tty-login-prompt.enable = true;
-    };
-    profiles = {
-      gaming.enable = true;
-      core = {
-        enable = true;
-        bluetooth.enable = true;
-        wifi.enable = true;
-        print.enable = true;
-        ssd.enable = true;
-        virtmanager.enable = false;
-      };
-    };
   };
 
-#    device = {
-#      type = "desktop";
-#      gpu = "nvidia";
-#      netDevices = [ "enp34s0" ];
+  ## Custom modules ##
+#  modules = {
+#    bootloader = "grub";
+#    windowManager = "dwm";
+#    transmission.enable = false;
+#    services = {
+#      greenclip.enable = true;
+#      tty-login-prompt.enable = true;
 #    };
+#    profiles = {
+#      gaming.enable = true;
+#      core = {
+#        enable = true;
+#        bluetooth.enable = true;
+#        wifi.enable = true;
+#        print.enable = true;
+#        ssd.enable = true;
+#        virtmanager.enable = false;
+#      };
+#    };
+#  };
+
+    device = {
+      type = "desktop";
+      gpu = "nvidia";
+      netDevices = [ "enp34s0" ];
+    };
   
       # GPU
     services.xserver.videoDrivers = [ "nvidia" ];
