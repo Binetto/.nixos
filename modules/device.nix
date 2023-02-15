@@ -12,27 +12,16 @@ with lib; {
       description = "Type of graphic cards";
       default = "nvidia";
     };
-    ssd.enable = mkOption {
-      description = "type of hard drive";
-      type = types.bool;
-      default = false;
+    storage.enable = mkOption {
+      description = "type of storage";
+      type = types.enum [ "hdd" "ssd" ];
+      default = "ssd";
     };
     netDevices = mkOption {
       type = with types; (listOf str);
       description = "Available net devices";
       example = [ "eno1" "wlp2s0" ];
       default = [ "eth0" ];
-    };
-    mountPoints = mkOption {
-      type = with types; (listOf str);
-      description = "Available mount points";
-      example = [ "/" "/mnt/backup" ];
-      default =
-        if (config ? fileSystems) then
-          (lists.subtractLists [ "/boot" "/tmp" "/nix" ]
-            (mapAttrsToList (n: _: n) config.fileSystems))
-        else
-          [ "/" ];
     };
   };
 }
