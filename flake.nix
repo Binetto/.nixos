@@ -67,7 +67,7 @@
           { networking.hostName = hostname; }
           (./. + "/hosts/${hostname}/config.nix")
           (./. + "/hosts/${hostname}/hardware.nix")
-          ./lib/adblock.nix
+          ./nixos/adblock.nix
           (import ./overlays { inherit inputs lib nixpkgs system pkgs unstable; }) 
       
           inputs.sops-nix.nixosModules.sops

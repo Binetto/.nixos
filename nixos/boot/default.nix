@@ -17,7 +17,6 @@ in
       boot = {
         plymouth.enable = false;
         loader = {
-          timeout = 1;
           efi = {
             canTouchEfiVariables = lib.mkDefault true;
             efiSysMountPoint = "/boot";
