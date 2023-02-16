@@ -17,12 +17,6 @@ in
       default = true;
     };
 
-    sound.enable = mkOption {
-      description = "Enable sound";
-      type = types.bool;
-      default = true;
-    };
-
     bluetooth.enable = mkOption {
       description = "Enable bluetooth";
       type = types.bool;
@@ -334,25 +328,6 @@ in
       documentation.doc.enable = false; # documentation distributed in packages' /share/doc
 
       system.stateVersion = "22.05";
-    })
-
-    (mkIf cfg.sound.enable {
-        # enable sound
-      services.pipewire = {
-        enable = true;
-        alsa.enable = true;
-        alsa.support32Bit = true;
-        pulse.enable = true;
-          # If you want to use JACK applications, uncomment this
-#        jack.enable = true;
-        lowLatency = {
-          enable = true;
-          quantum = 64;
-          rate = 48000;
-        };
-      };
-        # make pipewire realtime-capable
-      security.rtkit.enable = true;
     })
 
     (mkIf cfg.bluetooth.enable {

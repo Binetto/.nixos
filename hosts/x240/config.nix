@@ -2,6 +2,7 @@
 
   imports = [ 
     ../../nixos/default.nix
+    ../../nixos/bak/default.nix
   ];
 
   ## Custom modules ##

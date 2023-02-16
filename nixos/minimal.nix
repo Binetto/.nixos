@@ -1,8 +1,7 @@
 { ... }: {
 
   imports = [
-    ./audio.nix
-    ./minimal.nix
+    ./network.nix
   ];
 
 }
