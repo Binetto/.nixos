@@ -1,9 +1,9 @@
-{ config, lib, pkgs, ... }: {
+{ config, lib, ... }: {
 
   services.tailscale.enable = true;
 
   networking = {
-    enableIPv6 = false;
+    enableIPv6 = lib.mkDefault false;
     useDHCP = lib.mkDefault false;
     networkmanager.enable = false;
     nameservers = [

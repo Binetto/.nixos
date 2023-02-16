@@ -25,6 +25,11 @@ in {
     overlay-unstable
     (final: prev: {
       anime4k = prev.callPackage ../packages/anime4k { };
+
+        # namespaces
+      lib = prev.lib.extend (finalLib: prevLib:
+        (import ../modules/mkDefaultOption.nix { inherit (prev) lib; })
+      );
     })
     (self: super: {
       discord-canary-openasar = super.discord.override { 

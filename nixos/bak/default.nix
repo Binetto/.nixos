@@ -2,7 +2,6 @@
 {
   imports = [
     ./boot
-    ./core
     ./laptop
     ./services
     ./desktop

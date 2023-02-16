@@ -2,10 +2,8 @@
   {
 
     imports = [ 
-#      ../../modules/default.nix
-      ./hardware.nix
-      ../../nixos/default.nix
-#      ../../nixos/system/default.nix
+    ../../nixos/default.nix
+    ../../nixos/bak/default.nix
     ];
 
 #  modules = {
@@ -19,18 +17,9 @@
     transmission.enable = false;
     services = {
       greenclip.enable = true;
-      tty-login-prompt.enable = true;
     };
     profiles = {
       gaming.enable = true;
-      core = {
-        enable = true;
-        bluetooth.enable = true;
-        wifi.enable = true;
-        print.enable = true;
-        ssd.enable = true;
-        virtmanager.enable = false;
-      };
     };
   };
 
@@ -61,6 +50,6 @@
     nix.settings.max-jobs = 16; # ryzen 7 5800x
     hardware.cpu.amd.updateMicrocode = true;
     
-    nixpkgs.config.allowUnfree = true;
+#    nixpkgs.config.allowUnfree = true;
 
 }
