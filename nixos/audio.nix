@@ -1,6 +1,6 @@
-{ config, lib, ... }: {
+{ config, lib, pkgs, ... }: {
 
-  options.nixos.audio.enable = lib.mkEnableOption "audio config" // { default = true; };
+  options.nixos.audio.enable = pkgs.lib.mkDefaultOption "audio config";
 
   config = lib.mkIf config.nixos.audio.enable {
 
