@@ -1,6 +1,5 @@
 { config, pkgs, lib, ... }:
 with lib;
-
 let
   cfg = config.modules.bootloader;
 in
@@ -17,6 +16,7 @@ in
       boot = {
         plymouth.enable = false;
         loader = {
+          timeout = 1;
           efi = {
             canTouchEfiVariables = lib.mkDefault true;
             efiSysMountPoint = "/boot";
@@ -27,7 +27,7 @@ in
             version = 2;
             device = "nodev";
             efiSupport = true;
-            gfxmodeEfi = "1280x720";
+            gfxmodeEfi = "1366x768";
             useOSProber = true;
             backgroundColor = lib.mkDefault "#000000";
             splashImage = null;

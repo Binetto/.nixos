@@ -1,7 +1,7 @@
 { pkgs, config, lib, ... }:
 {
   imports = [
-    ./boot
+    #./boot
     ./laptop
     ./services
     ./desktop

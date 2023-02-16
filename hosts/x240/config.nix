@@ -12,26 +12,17 @@
 #    desktopEnvironment = null;
     services = {
       greenclip.enable = true;
-      tty-login-prompt.enable = true;
     };
     profiles = {
       laptop.enable = true;
       server.enable = false;
-      core = {
-        enable = true;
-        bluetooth.enable = false;
-        wifi.enable = true;
-        print.enable =false;
-        ssd.enable = true;
-        virtmanager.enable = false;
-      };
     };
   };
 
-#    device = {
-#      type = "laptop";
-#      netDevices = [ "" ];
-#    };
+    device = {
+      type = "laptop";
+      netDevices = [ "" ];
+    };
   
     ## Hardware ##
       # IGPU
@@ -71,6 +62,4 @@
     services.throttled.enable = false;
     
     networking.hostName = "x240";
-
-    nixpkgs.config.allowUnfree = true;
 }

@@ -1,7 +1,7 @@
 { ... }: {
 
   imports = [
-    #./bootloader.nix
+    ./bootloader.nix
     ./cli.nix
     ./locale.nix
     ./meta.nix
