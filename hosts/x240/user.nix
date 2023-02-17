@@ -2,7 +2,7 @@
 
 {
   imports = [
-    ../../home-manager/default.nix 
+    ../../home-manager/bak/default.nix 
     (inputs.impermanence + "/home-manager.nix")
   ];
 

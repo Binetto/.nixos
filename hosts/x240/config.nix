@@ -14,7 +14,6 @@
       greenclip.enable = true;
     };
     profiles = {
-      laptop.enable = true;
       server.enable = false;
     };
   };

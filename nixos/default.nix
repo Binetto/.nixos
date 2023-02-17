@@ -5,7 +5,7 @@
     #./desktop.nix
     #./dev.nix
     ./fonts.nix
-    #./home.nix
+    ./home.nix
     ./laptop
     ./minimal.nix
     ./pc.nix

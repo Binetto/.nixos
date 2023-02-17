@@ -33,7 +33,7 @@
 #    disc-doubleClickVC = { url = "github:discord-modifications/double-click-vc"; flake = false; };
 #    disc-muteNewGuild = { url = "github:RazerMoon/muteNewGuild"; flake = false; };
 #    disc-popoutFix = { url = "github:Nexure/PowerCord-Popout-Fix"; flake = false; };
-#    disc-screenshareCrack = { url = "github:discord-modifications/screenshare-crack"; flake = false; };
+##    disc-screenshareCrack = { url = "github:discord-modifications/screenshare-crack"; flake = false; };
 #    disc-unindent = { url = "github:VenPlugs/Unindent"; flake = false; };
 #    disc-silentTyping = { url = "github:svby/powercord-silenttyping"; flake = false; };
 #    disc-gruvbox = { url = "github:binettexyz/discord-gruvbox"; flake = false; };
