@@ -25,7 +25,7 @@ in {
     overlay-unstable
     (final: prev: {
       anime4k = prev.callPackage ../packages/anime4k { };
-      st = prev.st.overrideAttrs (old: { src = inputs.st ;});
+      #st = prev.st.overrideAttrs (old: { src = inputs.st + "/default.nix" ;});
         # namespaces
       lib = prev.lib.extend (finalLib: prevLib:
         (import ../modules/mkDefaultOption.nix { inherit (prev) lib; })
