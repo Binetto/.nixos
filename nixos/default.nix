@@ -6,7 +6,7 @@
     #./dev.nix
     ./fonts.nix
     #./home.nix
-    #./laptop
+    ./laptop
     ./minimal.nix
     ./pc.nix
     ./xserver.nix
