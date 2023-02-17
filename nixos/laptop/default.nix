@@ -1,39 +1,11 @@
-{ config, lib, pkgs, ... }:
-with lib;
-let
-  options = {
-    laptop.onLowBattery = {
-      enable = mkEnableOption "Perform action on low battery";
+{ config, pkgs, lib, ... }:
 
-      thresholdPercentage = mkOption {
-        description = "Threshold battery percentage on which to perform the action";
-        default = 8;
-        type = types.int;
-      };
-
-      action = mkOption {
-        description = "Action to perform on low battery";
-        default = "hibernate";
-        type = types.enum [ "hibernate" "suspend" "suspend-then-hibernate" ];
-      };
-    };
-  };
-
-  config =
-    let cfg = config.laptop.onLowBattery;
-    in mkIf cfg.enable {
-      services.udev.extraRules = concatStrings [
-        ''SUBSYSTEM=="power_supply", ''
-        ''ATTR{status}=="Discharging", ''
-        ''ATTR{capacity}=="[0-${toString cfg.thresholdPercentage}]", ''
-        ''RUN+="${pkgs.systemd}/bin/systemctl ${cfg.action}"''
-      ];
-    };
-in {
-
+{
   options.nixos.laptop.enable = lib.mkEnableOption "laptop config" // {
     default = (config.device.type == "laptop");
   };
+
+  imports = [ ./battery.nix ];
 
   config = lib.mkIf config.nixos.laptop.enable {
     laptop.onLowBattery.enable = true;
@@ -53,6 +25,7 @@ in {
 
     # Configure special hardware in laptops
     hardware = {
+      # Enable bluetooth
       bluetooth = { enable = true; };
     };
 
@@ -117,5 +90,4 @@ in {
     };
     powerManagement.cpuFreqGovernor = "powersave";
   };
-
 }

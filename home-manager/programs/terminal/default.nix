@@ -14,7 +14,7 @@ in
 
   config = mkMerge [
     (mkIf (cfg == "st") {
-      home.packages = with pkgs; [ st-head ];
+      home.packages = with pkgs; [ st ];
     })
     (mkIf (cfg == "xterm") {
 #      home.packages = with pkgs; [ xterm ];

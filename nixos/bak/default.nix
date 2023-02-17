@@ -2,10 +2,10 @@
 {
   imports = [
     #./boot
-    ./laptop
+    #./laptop
     ./services
     ./desktop
     ./server
-    ./gaming
+    #./gaming
   ];
 }

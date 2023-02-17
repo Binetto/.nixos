@@ -192,6 +192,7 @@
         "slstatus-laptop": "slstatus-laptop",
         "sops-nix": "sops-nix",
         "st": "st",
+        "st-test": "st-test",
         "stable": "stable",
         "unstable": "unstable"
       }
@@ -263,6 +264,22 @@
       "original": {
         "owner": "binettexyz",
         "repo": "st",
+        "type": "github"
+      }
+    },
+    "st-test": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1676659758,
+        "narHash": "sha256-cN1QOYxVWWCPiyJOSnAmGZwaXSgeWcP3UsRH5eWHB/Q=",
+        "owner": "binettexyz",
+        "repo": "st-test",
+        "rev": "a3b147e4c130e8e9b70f16de11f2b1070367f407",
+        "type": "github"
+      },
+      "original": {
+        "owner": "binettexyz",
+        "repo": "st-test",
         "type": "github"
       }
     },

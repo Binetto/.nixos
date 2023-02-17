@@ -3,6 +3,7 @@
 
     imports = [ 
     ../../nixos/default.nix
+    ../../nixos/gaming
     ../../nixos/bak/default.nix
     ];
 
@@ -17,9 +18,6 @@
     transmission.enable = false;
     services = {
       greenclip.enable = true;
-    };
-    profiles = {
-      gaming.enable = true;
     };
   };
 
