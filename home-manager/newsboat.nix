@@ -2,20 +2,11 @@
 with lib;
 
 let
-  cfg = config.modules.programs.newsboat;
   browser = "${pkgs.firefox}/bin/librewolf";
   mpv = "${pkgs.mpv}/bin/mpv";
 in
 {
-  options.modules.programs.newsboat = {
-    enable = mkOption {
-      description = "Enable newsboat package";
-      type = types.bool;
-      default = false;
-    };
-  };
 
-  config = mkIf (cfg.enable) {
     programs.newsboat = {
       enable = true;
 
@@ -101,7 +92,6 @@ in
         { title = "NixOS Home-Manager"; url = "https://github.com/nix-community/home-manager/commits.atom"; }
       ]; 
     };
-  };
 
 }
 

@@ -2,6 +2,10 @@
 
 {
 
+  options.gaming.enable = pkgs.lib.mkEnableOption "gaming Packages" // { default = false; };
+
+  modules.programs.mpv.desktopConfig = true;
+
   home.packages = with pkgs; [
     (calibre.override { unrarSupport = true; })
     gimp
@@ -12,8 +16,33 @@
     solaar
 #    texlive.combined.scheme-full
     (unstable.discord.override { withOpenASAR = true; nss = nss_latest; })
-
   ];
+
+  config = lib.mkIf config.gaming.enable {
+    home.packages = with pkgs; [
+        prismlauncher
+        grapejuice
+        mangohud # afterburner like
+        #runescape runelite
+        #zeroad
+        #yuzu-mainline
+        #retroarchFull
+          # retroarch with specific cores
+        (retroarch.override {
+          cores = [
+            libretro.mgba
+            libretro.snes9x
+            libretro.mesen
+            libretro.parallel-n64
+            libretro.dolphin
+            libretro.pcsx2
+            libretro.ppsspp
+          ];
+        })
+        #inputs.nix-gaming.packages.${pkgs.system}.osu-stable
+        #inputs.nix-gaming.packages.${pkgs.system}.osu-lazer-bin
+    ];
+  };
 
   xdg = {
       # Some applications like to overwrite this file, so let's just force it

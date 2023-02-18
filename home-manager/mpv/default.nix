@@ -25,11 +25,6 @@ let
 in
 {
   options.modules.programs.mpv = {
-    enable = mkOption {
-      description = "Enable mpv package";
-      type = types.bool;
-      default = false;
-    };
 
     desktopConfig.enable = mkOption {
       description = "enable desktop config";
@@ -44,7 +39,7 @@ in
     };
   };
 
-  config = mkIf (cfg.enable) (mkMerge [
+  config = (mkMerge [
     ({
       programs.mpv = {
         enable = true;

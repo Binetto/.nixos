@@ -1,19 +1,8 @@
 { pkgs, config, lib, ... }:
 with lib;
 
-let
-  cfg = config.modules.cli.neovim;
-in
 {
-  options.modules.cli.neovim = {
-    enable = mkOption {
-      description = "Enable Neovim package";
-      type = types.bool;
-      default = true;
-    };
-  };
 
-  config = mkIf (cfg.enable) {
     programs.neovim = {
       enable = true;
       viAlias = true;
@@ -235,5 +224,4 @@ in
     };
   
     home.packages = with pkgs; [ rnix-lsp ];
-  };
 }

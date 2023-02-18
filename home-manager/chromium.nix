@@ -1,19 +1,7 @@
 { pkgs, config, lib, ... }:
 with lib;
 
-let
-  cfg = config.modules.programs.chromium;
-in
 {
-  options.modules.programs.chromium = {
-    enable = mkOption {
-      description = "Enable chromium package";
-      type = types.bool;
-      default = false;
-    };
-  };
-
-  config = mkIf (cfg.enable) {
     programs.chromium = {
       enable = true;
       package = pkgs.brave;
@@ -45,6 +33,5 @@ in
         }
       ];
     };
-  };
 
 }

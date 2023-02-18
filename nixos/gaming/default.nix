@@ -20,15 +20,13 @@ in
     environment = {
       systemPackages = with pkgs; [
         piper # GTK frontend for ratbagd mouse config daemon
-        #(lutris.override { lutris-unwrapped = lutris-unwrapped.override { wine = inputs.nix-gaming.packages.${pkgs.system}.wine-tkg; }; })
+        #(lutris.override { lutris-unwrapped = lutris-unwrapped.override {
+          #wine = inputs.nix-gaming.packages.${pkgs.system}.wine-tkg;
+        #};})
         unstable.lutris
-        #retroarchFull
         jdk # Minecraft Java
-          # Enable terminal interaction
         steamPackages.steamcmd
         steam-tui
-#        inputs.nix-gaming.packages.${pkgs.system}.osu-stable
-#        inputs.nix-gaming.packages.${pkgs.system}.osu-lazer-bin
           # League of Legends
         vulkan-tools
         openssl

@@ -75,28 +75,6 @@ in {
           #rcon
       ];
     })
-    (mkIf cfg.gaming.enable {
-      home.packages = with pkgs; [
-        prismlauncher
-        grapejuice
-        mangohud # afterburner like
-#        runescape runelite
-#        zeroad
-#        yuzu-mainline
-          # retroarch with specific cores
-        (retroarch.override {
-          cores = [
-            libretro.mgba
-            libretro.snes9x
-            libretro.mesen
-            libretro.parallel-n64
-            libretro.dolphin
-            libretro.pcsx2
-            libretro.ppsspp
-          ];
-        })
-      ];
-    })
   ]);
 
 }

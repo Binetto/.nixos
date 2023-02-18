@@ -1,4 +1,4 @@
-{ ... }: {
+{ lib, ... }: {
 
   imports = [
     ./minimal.nix
@@ -8,5 +8,9 @@
     ./pc.nix
     ./qutebrowser
   ];
+
+  modules.programs = {
+    mpv.laptopConfig.enable = true;
+  };
 
 }

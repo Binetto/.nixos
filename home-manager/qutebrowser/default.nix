@@ -1,19 +1,8 @@
 { pkgs, config, lib, ... }:
 with lib;
 
-let
-  cfg = config.modules.programs.qutebrowser;
-in
 {
-  options.modules.programs.qutebrowser = {
-    enable = mkOption {
-      description = "Enable qutebrowser package";
-      type = types.bool;
-      default = false;
-    };
-  };
 
-  config = mkIf (cfg.enable) {
     programs.qutebrowser = {
       enable = true;
 
@@ -162,5 +151,5 @@ in
         };
       };
     };
-  };
+
 }

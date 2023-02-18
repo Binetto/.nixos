@@ -1,19 +1,8 @@
 { pkgs, config, lib, ... }:
 with lib;
 
-let
-  cfg = config.modules.programs.lf;
-in
 {
-  options.modules.programs.lf = {
-    enable = mkOption {
-      description = "Enable lf package";
-      type = types.bool;
-      default = false;
-    };
-  };
 
-  config = mkIf (cfg.enable) {
     programs.lf = {
       enable = true;
       settings = {
@@ -167,6 +156,5 @@ in
 
     home.file.".config/lf/cleaner".source = ./etc/cleaner;
     home.file.".config/lf/preview".source = ./etc/preview;
-  };
 
 }

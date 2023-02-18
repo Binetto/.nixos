@@ -3,7 +3,7 @@
   imports = [
     ./librewolf.nix
     ./newsboat.nix
-    #./dwm
+    ./dwm
   ];
 
   home.packages = with pkgs; [
@@ -25,7 +25,7 @@
     xdotool
     xdragon
     xorg.xev
-#   xorg.xinit
+    xorg.xinit
     xorg.xmodmap
     xorg.xdpyinfo
     xorg.xkill
