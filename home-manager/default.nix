@@ -6,8 +6,11 @@
     ./cli.nix
     ./desktop.nix
 #    ./git.nix
-#    ./neovim.nix
-#    ./newsboat.nix
+    ./lf
+#    ./mpv
+    ./neovim.nix
+    ./newsboat.nix
+     ./qutebrowser
 #    ./ssh.nix
 #    ./st.nix
 #    ./tmux.nix

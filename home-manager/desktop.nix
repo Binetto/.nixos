@@ -13,7 +13,7 @@
     inkscape
     libreoffice-fresh
     #FIXME:overlay- open-browser
-    maim
+    stable.maim
     mupdf
     newsboat
     nsxiv
@@ -22,7 +22,7 @@
     pinta
     playerctl
     pulsemixer
-    slop
+    stable.slop
     solaar
 #    texlive.combined.scheme-full
     trackma-qt
@@ -32,7 +32,7 @@
     (unstable.discord.override { withOpenASAR = true; nss = nss_latest; })
     unstable.zoom-us
     #TODO xbanish # Hides the mouse when using the keyboard
-        xcape
+    xcape
     xclip
     xdotool
     xdragon
