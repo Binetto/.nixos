@@ -2,15 +2,16 @@
 
 {
   imports = [
+    ../../home-manager/laptop.nix 
     ../../home-manager/bak/default.nix 
     (inputs.impermanence + "/home-manager.nix")
   ];
 
   modules = {
-    packages = {
-      enable = true;
-      gaming.enable = false;
-    };
+#    packages = {
+#      enable = true;
+#      gaming.enable = false;
+#    };
 
     cli = {
       git.enable = true;

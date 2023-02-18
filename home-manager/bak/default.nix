@@ -3,7 +3,7 @@
 {
   home.stateVersion = "22.05";
   imports = [
-    ./packages.nix
+#    ./packages.nix
 
     ./cli/git
     #./cli/neovim
@@ -19,7 +19,7 @@
     ./programs/gtk
     #./programs/librewolf
     #./programs/lf
-    ./programs/mpv
+    #./programs/mpv
 #    ./programs/mutt
     #./programs/newsboat
 #    ./programs/nnn

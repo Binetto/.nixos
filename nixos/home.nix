@@ -15,7 +15,7 @@ in
   config = lib.mkIf config.nixos.home.enable {
     home-manager = {
       useUserPackages = true;
-      users.${config.nixos.home.username} = ../home-manager/nixos.nix;
+      users.${config.nixos.home.username} = ../hosts/${hostName}/user.nix;
       extraSpecialArgs = {
         inherit flake system;
         super = config;

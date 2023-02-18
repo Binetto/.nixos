@@ -35,6 +35,8 @@
     unzip
     wget
     yt-dlp
+    xclip
+    xcape
     zip
   ];
 

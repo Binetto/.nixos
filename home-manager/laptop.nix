@@ -1,12 +1,12 @@
 { ... }: {
 
   imports = [
-    ./desktop.nix
+    ./minimal.nix
     ./lf
-#    ./mpv
+    ./mpv
     ./newsboat.nix
-     ./qutebrowser
-#    ./st.nix
+    ./pc.nix
+    ./qutebrowser
   ];
 
 }
