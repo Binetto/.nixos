@@ -9,10 +9,8 @@ in
     #./libvirt
   ];
 
-    # Some misc packages
-  environment.systemPackages = with pkgs; [ ];
-    # Get rid of defaults packages
-  environment.defaultPackages = [ ];
+    # enable suckless window manager
+  services.xserver.windowManager.dwm.enable = true;
 
   #TODO: users.users.${username} = { extraGroups = [ ]; };
 
@@ -27,32 +25,6 @@ in
 
   hardware = {
     opengl.enable = true; # Enable opengl
-      # Enable Font/DPI configuration optimized for HiDPI displays
-    video.hidpi.enable = true;
-  };
-
-    # Needed by home-manager's impermanence
-  programs.fuse.userAllowOther = true;
-
-    # Don't install documentation I don't use
-  documentation = {
-    enable = true; # documentation of packages
-    nixos.enable = true; # nixos documentation
-    man.enable = true; # manual pages and the man command
-    info.enable = false; # info pages and the info command
-    doc.enable = false; # documentation distributed in packages' /share/doc
-  };
-
-    # Sops-nix password encryption
-  sops.defaultSopsFile = ../../../secrets/common.yaml;
-  sops.age.sshKeyPaths = [ "/home/binette/.ssh/id_ed25519" ];
-  
-  environment.etc = {
-    "machine-id".source = "/nix/persist/etc/machine-id";
-    "ssh/ssh_host_rsa_key".source = "/nix/persist/etc/ssh/ssh_host_rsa_key";
-    "ssh/ssh_host_rsa_key.pub".source = "/nix/persist/etc/ssh/ssh_host_rsa_key.pub";
-    "ssh/ssh_host_ed25519_key".source = "/nix/persist/etc/ssh/ssh_host_ed25519_key";
-    "ssh/ssh_host_ed25519_key.pub".source = "/nix/persist/etc/ssh/ssh_host_ed25519_key.pub";
   };
 
   services.journald.extraConfig = ''
