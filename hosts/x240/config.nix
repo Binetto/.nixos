@@ -2,17 +2,15 @@
 
   imports = [ 
     ../../nixos/default.nix
-    ../../nixos/bak/default.nix
   ];
 
   ## Custom modules ##
   modules = {
+    bootloader = "grub";
     device = {
       type = "laptop";
       netDevices = [ "" ];
     };
-    bootloader = "grub";
-    windowManager = "dwm";
   };
 
   

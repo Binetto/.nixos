@@ -21,6 +21,9 @@ in
     printing = { enable = true; drivers = with pkgs; [ ]; };
     dbus.implementation = "broker";
 #    udisks2.enable = true;
+      # Enable clipboard manager
+    greenclip.enable = true;
+    gvfs.enable = true;
   };
 
   hardware = {
