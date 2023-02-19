@@ -1,19 +1,8 @@
 { pkgs, config, lib, ... }:
 with lib;
 
-let
-  cfg = config.modules.cli.zsh;
-in
 {
-  options.modules.cli.zsh = {
-    enable = mkOption {
-      description = "Enable Zsh package";
-      type = types.bool;
-      default = true;
-    };
-  };
 
-  config = mkIf (cfg.enable) {
     programs.zsh = {
       enable = true;
         # zsh directory
@@ -94,11 +83,6 @@ in
           # Custom packages script
         lf = "lfrun";
 
-          # Clipboard
-        c = "xclip";
-        cm = "xclip -selection clipboard";
-        v = "xclip -o";
-
           # fetch computer specs
         pfetch = "curl -s https://raw.githubusercontent.com/dylanaraps/pfetch/master/pfetch | sh";
       };
@@ -155,6 +139,5 @@ in
         }
       ];
     };
-  };
 
 }

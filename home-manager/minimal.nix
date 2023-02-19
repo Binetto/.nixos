@@ -2,12 +2,13 @@
 
   home.stateVersion = "22.05";
   imports = [
+    ../modules/device.nix
     ./cli.nix
-    #./git.nix
+    ./git.nix
     ./neovim.nix
-    #./ssh
-    #./tmux.nix
-    #./zsh.nix
+    ./ssh.nix
+    ./tmux.nix
+    ./zsh.nix
   ];
 
   home.packages = with pkgs; [

@@ -7,21 +7,14 @@
 
   ## Custom modules ##
   modules = {
-    bootloader = "grub";
-    windowManager = "dwm";
-#    desktopEnvironment = null;
-    services = {
-      greenclip.enable = true;
-    };
-    profiles = {
-      server.enable = false;
-    };
-  };
-
     device = {
       type = "laptop";
       netDevices = [ "" ];
     };
+    bootloader = "grub";
+    windowManager = "dwm";
+  };
+
   
     ## Hardware ##
       # IGPU

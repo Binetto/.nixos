@@ -2,9 +2,9 @@
 
 {
 
-  options.gaming.enable = pkgs.lib.mkEnableOption "gaming Packages" // { default = false; };
+  options.gaming.enable = pkgs.lib.mkDefaultOption "gaming Packages";
 
-  modules.programs.mpv.desktopConfig = true;
+  modules.device.type = "desktop";
 
   home.packages = with pkgs; [
     (calibre.override { unrarSupport = true; })
@@ -15,10 +15,27 @@
     pinta
     solaar
 #    texlive.combined.scheme-full
-    (unstable.discord.override { withOpenASAR = true; nss = nss_latest; })
-  ];
-
-  config = lib.mkIf config.gaming.enable {
+    #(unstable.discord.override { withOpenASAR = true; nss = nss_latest; })
+    (discord-plugged.override {
+      discord-canary = discord-canary.override {
+        nss = pkgs.nss_latest;
+        withOpenASAR = true;
+      };
+       plugins = [
+        inputs.disc-betterReplies
+        inputs.disc-doubleClickVC
+        inputs.disc-muteNewGuild
+        inputs.disc-popoutFix
+        inputs.disc-screenshareCrack
+        inputs.disc-unindent
+        inputs.disc-silentTyping
+      ];
+       themes = [
+        inputs.disc-gruvbox
+      ];
+    })
+ ];
+ config = lib.mkIf config.gaming.enable {
     home.packages = with pkgs; [
         prismlauncher
         grapejuice
@@ -44,37 +61,4 @@
     ];
   };
 
-  xdg = {
-      # Some applications like to overwrite this file, so let's just force it
-    configFile."mimeapps.list".force = true;
-    mimeApps = {
-      enable = true;
-      defaultApplications =
-      let
-        browser = "librewolf.desktop";
-      in {
-        "application/pdf" = [ "pdf.desktop" ];
-        "application/postscript" = [ "pdf.desktop" ];
-        "application/rss+xml" = [ "rss.desktop" ];
-
-        "image/png" = [ browser ];
-        "image/jpeg" = [ "img.desktop" ];
-        "image/gif" = [ "img.desktop" ];
-        "inode/directory" = [ "file.desktop" ];
-
-        "text/x-shellscript" = [ "text.desktop" ];
-        "text/plain" = [ "text.desktop" ];
-        "text/html" = [ "text.desktop" ];
-
-        "video/x-matroska" = [ "video.desktop" ];
-
-        "x-scheme-handler/magnet" = [ "torrent.desktop" ];
-        "x-scheme-handler/mailto" = [ "mail.desktop" ];
-        "x-scheme-handler/http" = [ browser ];
-        "x-scheme-handler/https " = [ browser ];
-        "x-scheme-handler/about" = [ browser ];
-        "x-scheme-handler/unknown" = [ browser ];
-      };
-    };
-  };  
 }

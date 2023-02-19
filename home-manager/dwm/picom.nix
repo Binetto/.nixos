@@ -1,19 +1,7 @@
 { pkgs, config, lib, ... }:
 with lib;
 
-let
-  cfg = config.modules.services.picom;
-in
 {
-  options.modules.services.picom = {
-    enable = mkOption {
-      description = "Enable picom service";
-      type = types.bool;
-      default = false;
-    };
-  };
-
-  config = mkIf (cfg.enable) {
     services.picom = {
         # Enabled client-side shadows on windows. 
       enable = true;
@@ -94,5 +82,5 @@ in
         };
       };
     };
-  };
+
 }

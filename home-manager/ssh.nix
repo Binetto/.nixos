@@ -1,19 +1,7 @@
 { pkgs, config, lib, ... }:
 with lib;
 
-let
-  cfg = config.modules.services.ssh;
-in
 {
-  options.modules.services.ssh = {
-    enable = mkOption {
-      description = "edit ssh config";
-      type = types.bool;
-      default = true;
-    };
-  };
-
-  config = mkIf (cfg.enable) {
 
     programs.ssh = {
       enable = true;
@@ -29,8 +17,6 @@ in
         };
       };
     };
-
-  };
 
 }
 

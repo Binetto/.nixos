@@ -1,19 +1,7 @@
 { pkgs, config, lib, ... }:
 with lib;
 
-let
-  cfg = config.modules.services.sxhkd;
-in
 {
-  options.modules.services.sxhkd = {
-    enable = mkOption {
-      description = "Enable flameshot service";
-      type = types.bool;
-      default = false;
-    };
-  };
-
-  config = mkIf (cfg.enable) {
     services.sxhkd = {
       enable = true;
 
@@ -80,8 +68,6 @@ in
     };
 
   home.file.".config/sxhkd/action".source = ./action;
-
-  };
 
 }
 

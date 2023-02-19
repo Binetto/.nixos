@@ -9,8 +9,6 @@
     ./qutebrowser
   ];
 
-  modules.programs = {
-    mpv.laptopConfig.enable = true;
-  };
+  modules.device.type = "laptop";
 
 }

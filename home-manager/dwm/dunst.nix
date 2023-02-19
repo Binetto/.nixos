@@ -1,19 +1,7 @@
 { pkgs, config, lib, ... }:
 with lib;
 
-let
-  cfg = config.modules.services.dunst;
-in
 {
-  options.modules.services.dunst = {
-    enable = mkOption {
-      description = "Enable dunst services";
-      type = types.bool;
-      default = false;
-    };
-  };
-
-  config = mkIf (cfg.enable) {
     home.packages = with pkgs; [ libnotify ];
     services.dunst = {
       enable = true;
@@ -131,6 +119,5 @@ in
         };
       };
     };
-  };
 
 }

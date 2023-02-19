@@ -2,7 +2,6 @@
 with lib;
 
 let
-  cfg = config.modules.programs.mpv;
   anime4k = pkgs.anime4k;
   anime4kHighSpecs = {
     "CTRL+1" = ''no-osd change-list glsl-shaders set "${anime4k}/Anime4K_Clamp_Highlights.glsl:${anime4k}/Anime4K_Restore_CNN_VL.glsl:${anime4k}/Anime4K_Upscale_CNN_x2_VL.glsl:${anime4k}/Anime4K_AutoDownscalePre_x2.glsl:${anime4k}/Anime4K_AutoDownscalePre_x4.glsl:${anime4k}/Anime4K_Upscale_CNN_x2_M.glsl"; show-text "Anime4K: Mode A (HQ)"'';
@@ -24,20 +23,6 @@ let
   };
 in
 {
-  options.modules.programs.mpv = {
-
-    desktopConfig.enable = mkOption {
-      description = "enable desktop config";
-      type = types.bool;
-      default = false;
-    };
-
-    laptopConfig.enable = mkOption {
-      description = "enable laptop config";
-      type = types.bool;
-      default = false;
-    };
-  };
 
   config = (mkMerge [
     ({
@@ -85,7 +70,7 @@ in
       home.file.".config/mpv/script-opts".source = ./etc/script-opts;
 
     })
-    (mkIf cfg.desktopConfig.enable {
+    (mkIf (config.modules.device.type == "desktop") {
       programs.mpv.bindings = anime4kHighSpecs;
 
       home.file.".config/mpv/mpv.conf".text = lib.strings.concatStringsSep "\n" [
@@ -359,7 +344,7 @@ in
       ];
     })
 
-    (mkIf cfg.laptopConfig.enable {
+    (mkIf (config.modules.device.type == "laptop") {
     })
   ]);
   

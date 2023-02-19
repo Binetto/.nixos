@@ -3,37 +3,8 @@
 {
   imports = [
     ../../home-manager/laptop.nix 
-    ../../home-manager/bak/default.nix 
     (inputs.impermanence + "/home-manager.nix")
   ];
-
-  modules = {
-
-    cli = {
-      git.enable = true;
-      tmux.enable = true;
-      xdg.enable = true;
-      xresources = {
-        enable = true;
-        theme = "gruvbox";
-      };
-      zsh.enable = true;
-    };
-
-    programs = {
-#      discocss.enable = true;
-#      mutt.enable = true;
-#      nnn.enable = true;
-#      powercord.enable = true;
-#      zathura.enable = true;
-    };
-
-    services = {
-#      udiskie.enable = true;
-    };
-  };
-
-  home.packages = with pkgs; [ zoom-us ];
 
   home.file.".config/x11/xinitrc".text = ''
     #!/bin/sh

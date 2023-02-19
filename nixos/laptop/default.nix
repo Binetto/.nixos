@@ -2,7 +2,7 @@
 
 {
   options.nixos.laptop.enable = lib.mkEnableOption "laptop config" // {
-    default = (config.device.type == "laptop");
+    default = (config.modules.device.type == "laptop");
   };
 
   imports = [ ./battery.nix ];

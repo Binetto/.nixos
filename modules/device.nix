@@ -1,7 +1,7 @@
 { config, pkgs, lib, ... }:
 
 with lib; {
-  options.device = {
+  options.modules.device = {
     type = mkOption {
       type = types.enum [ "desktop" "laptop" "server" "vm" ];
       description = "Type of device";

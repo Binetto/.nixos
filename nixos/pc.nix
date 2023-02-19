@@ -55,6 +55,11 @@ in
     "ssh/ssh_host_ed25519_key.pub".source = "/nix/persist/etc/ssh/ssh_host_ed25519_key.pub";
   };
 
+  services.journald.extraConfig = ''
+    systemMaxUse=100M
+    MaxFileSec=7day
+  '';
+
     # TODO:
   #systemd.tmpfiles.rules = [
     #"d ${archive}/Downloads 0775 ${username} ${group}"

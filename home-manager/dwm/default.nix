@@ -20,6 +20,6 @@ in
     dmenu
     dwm
     st
-  ]; #  + (if config.modules.type.laptop == true then [ slstatus-laptop ] else [ slstatus-desktop ]);
+  ] ++ (if config.modules.device.type == "laptop" then [ slstatus-laptop ] else [ slstatus-desktop ]);
 
 }
